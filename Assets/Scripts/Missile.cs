@@ -45,6 +45,11 @@ public class Missile : MonoBehaviour
             return true;
         }
     }
+    public virtual void StopMissile()
+    {
+        ResetMissile();
+        ReturnMissile();
+    }
     public virtual void ReadyMissile(MissileManager missileManager, Vector3 targetPosition)
     {
         m_missileManager = missileManager;
@@ -53,7 +58,7 @@ public class Missile : MonoBehaviour
         transform.LookAt(m_currentTarget, Vector3.forward);
         m_isReady = true;
     }
-    protected void ResetMissile()
+    public void ResetMissile()
     {
         m_isReady = false;
         m_rigidBody.velocity = Vector3.zero; 
