@@ -123,6 +123,99 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &184007828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 184007829}
+  - component: {fileID: 184007830}
+  m_Layer: 0
+  m_Name: PlayerMissileManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &184007829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184007828}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1053075742}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &184007830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184007828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e07826c5351d546aef9cb57ce3fe52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetCamera: {fileID: 963194227}
+  m_pooler: {fileID: 1053075743}
+  m_releaseInterval: 1.5
+--- !u!1 &374784757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 374784758}
+  - component: {fileID: 374784759}
+  m_Layer: 0
+  m_Name: GameEventsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &374784758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374784757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &374784759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374784757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3fa75d3a2e7df54091149d84effa114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_displayManager: {fileID: 451068472}
+  m_playerMissileManager: {fileID: 184007830}
+  m_enemyMissileManager: {fileID: 1949622050}
 --- !u!1 &451068470
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,8 +225,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 451068471}
+  - component: {fileID: 451068472}
   m_Layer: 0
-  m_Name: Display
+  m_Name: GameDisplayManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,10 +243,75 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 688279624}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451068472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451068470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b98f6d4052ce84ba41d791867ff06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetCamera: {fileID: 963194227}
+  m_playerShooterPrefab: {fileID: 6909609684046297897, guid: 7b983263d7bb4f047b11b8569c56432e, type: 3}
+  m_targetPooler: {fileID: 688279625}
+  m_numberOfTargetsOnLeft: 3
+  m_numberOfTargetsOnRight: 3
+  m_targetPadding: 2
+--- !u!1 &688279623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688279624}
+  - component: {fileID: 688279625}
+  m_Layer: 0
+  m_Name: TargetPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &688279624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688279623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 451068471}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &688279625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688279623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed893df54504c84aa92db5cdb2d058f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objectToClone: {fileID: 5739892693315760864, guid: 285a8bb7d19ceb54ab66af85485c0508, type: 3}
+  m_parentTransform: {fileID: 688279624}
+  m_numberOfClones: 6
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +488,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1053075741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1053075742}
+  - component: {fileID: 1053075743}
+  m_Layer: 0
+  m_Name: PlayerMissilePooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1053075742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053075741}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 184007829}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1053075743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053075741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed893df54504c84aa92db5cdb2d058f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objectToClone: {fileID: 7811479715270268845, guid: f25982d185896fd41a15787a7fa7419d, type: 3}
+  m_parentTransform: {fileID: 1053075742}
+  m_numberOfClones: 15
 --- !u!1 &1925146478
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,9 +577,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed893df54504c84aa92db5cdb2d058f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_objectToClone: {fileID: 0}
-  m_parentTransform: {fileID: 0}
-  m_numberOfClones: 0
+  m_objectToClone: {fileID: 3278796334601872524, guid: 21fefeb56be968e4291a6f5e7fb047c6, type: 3}
+  m_parentTransform: {fileID: 1925146479}
+  m_numberOfClones: 15
 --- !u!1 &1949622048
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,8 +589,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1949622049}
+  - component: {fileID: 1949622050}
   m_Layer: 0
-  m_Name: EnemyMissileController
+  m_Name: EnemyMissileManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,5 +610,20 @@ Transform:
   m_Children:
   - {fileID: 1925146479}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1949622050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949622048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17dd81dc1b2a3424f8c89df4faa63fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetCamera: {fileID: 963194227}
+  m_pooler: {fileID: 1925146480}
+  m_releaseInterval: 2

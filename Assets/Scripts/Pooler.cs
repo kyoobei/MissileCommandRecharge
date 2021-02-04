@@ -21,7 +21,7 @@ public class Pooler : MonoBehaviour
             m_cloneQueue.Enqueue(clone);            
         }
     }
-    public GameObject ReleaseClone()
+    public GameObject GetClone()
     {
         GameObject clone = null;
         if(m_cloneQueue.Count > 0)
